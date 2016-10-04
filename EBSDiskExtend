@@ -1,0 +1,24 @@
+# EBS Disk extend in AWS
+
+I have a disk with xGB. Customer asked met to increase it to yGB this artical will explain how to do that.
+
+##### Step 1: 
+Login to respective server, unmount filesystems which are created on disk 
+    
+##### Step 2: 
+Ec2--> EBS--> make a note of disk id and device name (Exp: /dev/xvdf)
+
+##### Step 3:
+Go under EC2 --> EBS-->Volumes select respective volume, Create snapshot
+
+##### Step 4: 
+EC2 --> EBS --> snapshots, Create new volume from snapshot with yGB. 
+
+##### Step 5: 
+ditach existing disk from instance. 
+
+##### Step 6: 
+attach newly created disk to instance. While attaching you should give previous device name (Exp: /dev/xvdf). 
+
+##### Step 7: 
+Run lsblk at server. You can find disk with new size. 
